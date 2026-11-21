@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe9dd"/>
+      <stop offset="1" stop-color="#fff7f0"/>
+    </linearGradient>
+    <radialGradient id="halo" cx=".5" cy=".38" r=".5">
+      <stop offset="0" stop-color="#ffb98f" stop-opacity=".45"/>
+      <stop offset="1" stop-color="#ffb98f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#halo)"/>
+  <g fill="none" stroke="#9b5a34" stroke-width="1.8" stroke-opacity=".65">
+    <rect x="290" y="330" width="320" height="320" rx="28"/>
+    <rect x="350" y="390" width="200" height="200" rx="16"/>
+    <path d="M290 390 h-40 M290 450 h-40 M290 510 h-40 M290 570 h-40
+             M610 390 h40 M610 450 h40 M610 510 h40 M610 570 h40
+             M350 330 v-40 M410 330 v-40 M470 330 v-40 M530 330 v-40 M590 330 v-40
+             M350 650 v40 M410 650 v40 M470 650 v40 M530 650 v40 M590 650 v40"/>
+  </g>
+  <g fill="#9b5a34" fill-opacity=".25">
+    <rect x="380" y="420" width="60" height="60" rx="6"/>
+    <rect x="460" y="420" width="60" height="60" rx="6"/>
+    <rect x="380" y="500" width="140" height="60" rx="6"/>
+  </g>
+  <g fill="#5c3320" font-family="Georgia, serif" font-size="17" letter-spacing="6">
+    <text x="90" y="1010">LOCAL IMAGE GENERATION</text>
+  </g>
+  <g fill="#5c3320" fill-opacity=".6" font-family="Georgia, serif" font-size="14" letter-spacing="2">
+    <text x="90" y="1046">Z-IMAGE TURBO · INT8 · COMFYUI</text>
+  </g>
+  <g fill="#5c3320" fill-opacity=".32" font-family="Georgia, serif" font-size="13" letter-spacing="2">
+    <text x="90" y="1090">8 GB VRAM · 12 s / IMAGE</text>
+  </g>
+  <rect x="60" y="60" width="780" height="1080" fill="none" stroke="#9b5a34" stroke-opacity=".28"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity=".12"/>
+</svg>

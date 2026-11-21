@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9f2ff"/>
+      <stop offset="1" stop-color="#f9fcff"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <g stroke="#4a90d9" stroke-opacity=".38" stroke-width="2" fill="none">
+    <path d="M250 340 L450 240 L650 340 L650 560 L450 660 L250 560 Z"/>
+    <path d="M250 340 L450 440 L650 340 M450 440 V660"/>
+    <path d="M250 560 L450 440"/>
+  </g>
+  <g fill="#4a90d9" fill-opacity=".8">
+    <circle cx="250" cy="340" r="13"/><circle cx="450" cy="240" r="13"/>
+    <circle cx="650" cy="340" r="13"/><circle cx="650" cy="560" r="13"/>
+    <circle cx="450" cy="660" r="13"/><circle cx="250" cy="560" r="13"/>
+    <circle cx="450" cy="440" r="17"/>
+  </g>
+  <g stroke="#4a90d9" stroke-opacity=".26" stroke-width="1.5" fill="none">
+    <path d="M150 800 H750 M150 840 H750 M150 880 H750"/>
+  </g>
+  <g fill="#1b2a3a" font-family="Georgia, serif" font-size="17" letter-spacing="6">
+    <text x="90" y="1010">ARTIFICIAL INTELLIGENCE</text>
+  </g>
+  <g fill="#1b2a3a" fill-opacity=".55" font-family="Georgia, serif" font-size="15" letter-spacing="2">
+    <text x="90" y="1046">SEARCH · LEARNING · REASONING · NETWORKS</text>
+  </g>
+  <g fill="#1b2a3a" fill-opacity=".3" font-family="Georgia, serif" font-size="13" letter-spacing="2">
+    <text x="90" y="1090">17 LECTURES · REVISION NOTES</text>
+  </g>
+  <rect x="60" y="60" width="780" height="1080" fill="none" stroke="#4a90d9" stroke-opacity=".2"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity=".1"/>
+</svg>

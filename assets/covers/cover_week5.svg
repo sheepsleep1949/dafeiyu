@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eef2f6"/>
+      <stop offset="1" stop-color="#dfe7ee"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0 H0 V40" fill="none" stroke="#5b7a95" stroke-opacity=".16"/>
+    </pattern>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#grid)"/>
+  <g fill="none" stroke="#3f6383" stroke-width="1.6">
+    <rect x="180" y="270" width="250" height="160" rx="8" fill="#ffffff" fill-opacity=".5"/>
+    <rect x="470" y="270" width="250" height="160" rx="8" fill="#ffffff" fill-opacity=".5"/>
+    <rect x="180" y="480" width="250" height="160" rx="8" fill="#ffffff" fill-opacity=".5"/>
+    <rect x="470" y="480" width="250" height="160" rx="8" fill="#ffffff" fill-opacity=".5"/>
+    <rect x="325" y="690" width="250" height="120" rx="8" fill="#ffffff" fill-opacity=".5"/>
+    <path d="M430 430 V480 M305 430 V480 M595 430 V480"/>
+    <path d="M450 640 V690 M305 640 L450 690 M595 640 L450 690"/>
+  </g>
+  <g fill="none" stroke="#3f6383" stroke-opacity=".5">
+    <circle cx="430" cy="270" r="5"/><circle cx="595" cy="270" r="5"/>
+    <circle cx="430" cy="480" r="5"/><circle cx="595" cy="480" r="5"/>
+  </g>
+  <g fill="#1f3344" font-family="Georgia, serif" font-size="17" letter-spacing="6">
+    <text x="90" y="1010">SOFTWARE ENGINEERING</text>
+  </g>
+  <g fill="#1f3344" fill-opacity=".58" font-family="Georgia, serif" font-size="14" letter-spacing="2">
+    <text x="90" y="1046">4+1 VIEWS · USE CASE · SEQUENCE · DFD · ERD</text>
+  </g>
+  <g fill="#1f3344" fill-opacity=".3" font-family="Georgia, serif" font-size="13" letter-spacing="2">
+    <text x="90" y="1090">WEEK 5 LAB · 14 DIAGRAMS</text>
+  </g>
+  <rect x="60" y="60" width="780" height="1080" fill="none" stroke="#3f6383" stroke-opacity=".25"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity=".1"/>
+</svg>

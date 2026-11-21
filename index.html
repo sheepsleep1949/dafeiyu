@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="大肥鱼的作品集：影像、游戏与 AI 实验。Three.js 手搓的 3D 大肥鱼，正在玩电脑。">
+<meta name="theme-color" content="#E8F3FF">
+<title>大肥鱼 · 作品集</title>
+<link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="回到首页">
+    <span class="brand-mark" aria-hidden="true">
+      <img src="./assets/favicon.svg" alt="">
+    </span>
+    <span class="brand-text">大肥鱼<em>PORTFOLIO</em></span>
+  </a>
+  <nav class="nav-links" aria-label="主导航">
+    <a href="#works">作品</a>
+    <a href="#about">关于</a>
+    <a class="nav-cta" href="#top" data-scene-focus>看这条鱼</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <canvas id="stage" aria-label="3D 大肥鱼鲸鱼娘正在玩电脑。可拖拽旋转、滚轮缩放，点击角色会有反应。"></canvas>
+    <div class="hero-veil" aria-hidden="true"></div>
+
+    <div class="hero-copy">
+      <p class="kicker"><span class="dot"></span>PORTFOLIO · 2026</p>
+      <h1>把想法<br>做成<span class="hl">能玩</span>的东西</h1>
+      <p class="lede">我做会动的画面、能选择的故事，和一些在本地跑通的实验。大肥鱼替我值班——拖她、转她，或者给她戴副眼镜。</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#works">看作品 <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="#about">关于我</a>
+      </div>
+    </div>
+
+    <div class="hud">
+      <p class="hud-hint"><span class="pulse" aria-hidden="true"></span>拖拽旋转 · 滚轮缩放 · 点她一下</p>
+      <div class="chips" role="group" aria-label="给大肥鱼加配饰">
+        <span class="chips-label">配饰</span>
+        <button class="chip" type="button" data-accessory="glasses" aria-pressed="false">圆框眼镜</button>
+        <button class="chip" type="button" data-accessory="headphones" aria-pressed="false">耳机</button>
+        <button class="chip" type="button" data-accessory="tie" aria-pressed="false">小领结</button>
+        <button class="chip chip-ghost" type="button" id="reset-view">重置视角</button>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#works"><span>往下看</span><span class="scroll-line" aria-hidden="true"></span></a>
+  </section>
+
+  <section class="works" id="works">
+    <div class="section-head">
+      <p class="kicker"><span class="dot"></span>SELECTED WORKS</p>
+      <h2>两个工作区，一桌东西</h2>
+      <p class="section-sub">从影像、游戏到课程研究，一共 <strong id="work-count">12</strong> 件。点开任意一张看详情。</p>
+    </div>
+
+    <div class="filters" role="tablist" aria-label="作品分类">
+      <button class="filter is-active" type="button" role="tab" aria-selected="true" data-filter="全部">全部</button>
+      <button class="filter" type="button" role="tab" aria-selected="false" data-filter="影像">影像</button>
+      <button class="filter" type="button" role="tab" aria-selected="false" data-filter="游戏">游戏</button>
+      <button class="filter" type="button" role="tab" aria-selected="false" data-filter="研究">研究</button>
+      <button class="filter" type="button" role="tab" aria-selected="false" data-filter="工程">工程</button>
+      <button class="filter" type="button" role="tab" aria-selected="false" data-filter="实验">实验</button>
+    </div>
+
+    <div class="grid" id="works-grid"></div>
+    <p class="grid-empty" id="grid-empty" hidden>这个分类还没有作品。</p>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <div class="about-copy">
+        <p class="kicker"><span class="dot"></span>ABOUT</p>
+        <h2>一个人，<br>两个工作区</h2>
+        <p>我是大肥鱼。白天写代码，晚上把代码变成画面：能播的 MV、能选的故事、能在 8 GB 显存里跑起来的模型。</p>
+        <p>这个站点本身也是一件作品。场景里没有导入任何模型文件——鱼、桌子、显示器和那杯热茶，都是球体、圆角和贝塞尔曲线在 Three.js 里拼出来的。</p>
+        <ul class="stack" aria-label="常用工具">
+          <li>Three.js</li><li>Remotion</li><li>Ren'Py</li><li>Pillow</li><li>ComfyUI</li>
+        </ul>
+        <p class="about-contact" id="about-contact" hidden></p>
+      </div>
+      <dl class="stats">
+        <div><dt>作品</dt><dd>12<small>件</small></dd></div>
+        <div><dt>工作区</dt><dd>2<small>个</small></dd></div>
+        <div><dt>影像</dt><dd>6<small>件</small></dd></div>
+        <div><dt>工具</dt><dd>5<small>种</small></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>大肥鱼 · 作品集</p>
+    <p class="footer-note">场景与站点均为手写代码，无外部模型素材。</p>
+    <p class="footer-legal" id="footer-legal" hidden></p>
+    <a href="#top">回到顶部 ↑</a>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" type="button" data-close aria-label="关闭">×</button>
+    <div class="modal-media" id="modal-media"></div>
+    <div class="modal-info">
+      <p class="modal-cat" id="modal-cat"></p>
+      <h3 id="modal-title"></h3>
+      <p class="modal-meta" id="modal-meta"></p>
+      <p class="modal-desc" id="modal-desc"></p>
+      <ul class="modal-tags" id="modal-tags"></ul>
+      <p class="modal-foot" id="modal-foot"></p>
+      <span class="modal-ghost" id="modal-ghost" aria-hidden="true"></span>
+    </div>
+  </div>
+</div>
+
+<noscript>
+  <div class="noscript">这个页面需要 JavaScript 才能显示 3D 场景和作品列表。</div>
+</noscript>
+
+<script>
+  window.addEventListener('error', function (e) {
+    var el = document.getElementById('boot-error');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'boot-error';
+      el.style.cssText = 'position:fixed;z-index:9999;top:0;left:0;right:0;padding:10px 16px;background:#b3261e;color:#fff;font:13px/1.5 system-ui,sans-serif;white-space:pre-wrap';
+      document.body.appendChild(el);
+    }
+    el.textContent = '页面脚本出错：' + (e.message || '未知错误') + (e.filename ? '\n' + e.filename + ':' + e.lineno : '') + (e.target && e.target.tagName ? '\n资源：' + e.target.tagName + ' ' + (e.target.src || e.target.href || '') : '');
+  }, true);
+  window.addEventListener('unhandledrejection', function (e) {
+    console.error(e.reason);
+  });
+</script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js",
+    "three/addons/": "./vendor/"
+  }
+}
+</script>
+<script type="module" src="./assets/js/main.js"></script>
+</body>
+</html>

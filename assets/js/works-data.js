@@ -1,0 +1,182 @@
+/**
+ * 站点内容配置。
+ * 想换名字、简介、联系方式，改这里就够了。
+ */
+export const SITE = {
+  name: '大肥鱼',
+  tagline: '把想法做成能玩的东西',
+  email: '',        // 例如 hello@example.com，留空则不显示
+  github: '',       // 例如 https://github.com/xxx
+  year: 2026,
+
+  // ↓ 备案通过后把号填进来，页脚会自动出现，并链到工信部/公安备案查询页。
+  // 备案要求：首页底部必须显示备案号且能跳转核验，所以这一项别忘。
+  // 例：'京ICP备2026000000号-1'
+  icp: '',
+  // 例：'京公网安备 11011502039387号'（数字部分会自动提取，用来拼查询链接）
+  police: '',
+};
+
+/**
+ * 作品数据。
+ * cover   —— 卡片封面（3:4）
+ * video   —— 有视频时，弹层里直接播放
+ * poster  —— 视频封面（9:16）
+ * cat     —— 分类：影像 / 游戏 / 研究 / 工程 / 实验
+ */
+export const WORKS = [
+  {
+    id: 'dafeiyu',
+    title: '大肥鱼 · 24 秒 MV',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_dafeiyu.jpg',
+    type: 'video',
+    video: 'assets/videos/dafeiyu.mp4',
+    poster: 'assets/covers/poster_dafeiyu.jpg',
+    meta: ['竖屏 1080×1920', '24 秒', 'Pillow'],
+    tags: ['程序化动画', '九场分镜', '卡点', 'Pillow'],
+    desc: '九场、24 秒、竖屏。先定镜头表，再写渲染代码：月亮、海面、纸船和鲸鱼娘逐帧算出来，切点落在鼓点上。',
+    foot: '路径：dafeiyu_mv · 成片 final_v1.mp4 · 24.98s',
+  },
+  {
+    id: 'duo',
+    title: '路比人长',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_duo.jpg',
+    type: 'video',
+    video: 'assets/videos/duo.mp4',
+    poster: 'assets/covers/poster_duo.jpg',
+    meta: ['竖屏 1080×1920', '28 组对白', '双声线'],
+    tags: ['对白', 'AI 配音', '左右分屏', '墨迹剪影'],
+    desc: '马可·波罗与徒步主播的 28 组对白：一个在 1298 年出发，一个在 2024 年开播。左右分屏，同一句话，两种人生。',
+    foot: '路径：duo_video · 双 TTS 声线 · 72 秒',
+  },
+  {
+    id: 'remotion',
+    title: '九镜 SVG 卡点样片',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_remotion.jpg',
+    type: 'video',
+    video: 'assets/videos/remotion.mp4',
+    poster: 'assets/covers/poster_remotion.jpg',
+    meta: ['竖屏 1080×1920', '24 秒', '90 BPM'],
+    tags: ['Remotion', '纯 SVG', '逐帧卡点', '验证报告'],
+    desc: '纯 SVG + React，90 BPM 逐帧卡切。8/8 切点、35/35 鼓点都过了逐帧验证；24 秒成片渲染只花了 28 秒。',
+    foot: '路径：remotion-svg-mv · 720 帧 · 切点报告在 out/cutcheck.txt',
+  },
+  {
+    id: 'hongchen',
+    title: '红尘客栈 × 鲸鱼娘',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_hongchen.jpg',
+    type: 'video',
+    video: 'assets/videos/hongchen.mp4',
+    poster: 'assets/covers/poster_hongchen.jpg',
+    meta: ['竖屏 1080×1920', '25 秒', 'Pillow + OpenCV'],
+    tags: ['程序化动画', '水体', '粒子', '视差'],
+    desc: '25 秒程序化动画。四组方向波、520 个粒子、两层视差云；人物呼吸、水面倒影和月光轮廓，全部由代码算出来。',
+    foot: '路径：hongchen_whale · 0.85 秒/帧 · 25.0s',
+  },
+  {
+    id: 'talk',
+    title: '108 秒，0 条音轨',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_talk.jpg',
+    type: 'video',
+    video: 'assets/videos/talk.mp4',
+    poster: 'assets/covers/poster_talk.jpg',
+    meta: ['竖屏 1080×1920', '24 秒', '字幕驱动'],
+    tags: ['字幕', '拆解', '复刻', '节奏'],
+    desc: '一支没有声音的口播拆解：全靠字幕推进。字号、黑边、白卡的出现时机，都先按参考片量出来，再复刻一遍。',
+    foot: '路径：talk_video · 3 段背景 · 7 句字幕',
+  },
+  {
+    id: 'fish',
+    title: '大肥鱼的一生日记',
+    cat: '影像',
+    year: '2026',
+    cover: 'assets/covers/cover_fish.jpg',
+    type: 'image',
+    meta: ['竖屏 1080×1920', '系列', 'Python'],
+    tags: ['程序化插画', '叙事', '系列化', 'Pillow'],
+    desc: '一条鱼的一生，一集一个阶段。水草、光斑、鱼群和旁白都由 Python 程序化生成——第一集叫《我出生了》。',
+    foot: '路径：fish · 3 集脚本 · engine.py 负责绘制',
+  },
+  {
+    id: 'guishe',
+    title: '诡舍',
+    cat: '游戏',
+    year: '2026',
+    cover: 'assets/covers/cover_guishe.svg',
+    type: 'image',
+    meta: ['Ren\'Py', '26,771 字', '19 个选择点'],
+    tags: ['文字冒险', '多结局', 'Ren\'Py', '第二个工作区'],
+    desc: 'Ren\'Py 文字冒险：26,771 字、1,920 段对白、19 个选择点，四种结局。这是第二个工作区里的正式版。',
+    foot: '路径：新建文件夹 (7)\\Guishe\\game · 三章已完成',
+  },
+  {
+    id: 'localimage',
+    title: '本地生图落地',
+    cat: '实验',
+    year: '2026',
+    cover: 'assets/covers/cover_localimage.svg',
+    type: 'image',
+    meta: ['8 GB 显存', '12 秒 / 张', 'ComfyUI'],
+    tags: ['本地部署', 'Z-Image Turbo', '量化', '实测报告'],
+    desc: '在 8 GB 显存的 4060 上把 ComfyUI + Z-Image Turbo 跑通：768×1344 约 12 秒一张，显存峰值 7.6 GB。附完整踩坑记录。',
+    foot: '路径：本地生图_落地报告.md · 2026-11-21',
+  },
+  {
+    id: 'jc3001',
+    title: '挂科预警：决策树',
+    cat: '研究',
+    year: '2026',
+    cover: 'assets/covers/cover_jc3001.svg',
+    type: 'image',
+    meta: ['课程论文', '英文', '二分类'],
+    tags: ['决策树', '可解释性', '公平与隐私', '责任归属'],
+    desc: '用出勤、VLE 行为和作业分预测挂科风险。在决策树与神经网络之间选了能解释的那一个，并把公平、隐私与问责写进设计。',
+    foot: 'JC3001 · Predicting Students at Risk of Failing',
+  },
+  {
+    id: 'ai',
+    title: '人工智能基础 · 复习讲义',
+    cat: '研究',
+    year: '2026',
+    cover: 'assets/covers/cover_ai.svg',
+    type: 'image',
+    meta: ['17 讲', '三份速记', '中文'],
+    tags: ['搜索', '学习', '推理', '神经网络'],
+    desc: '17 讲课件压成三份速记：搜索、学习、推理与神经网络。考前只看这一份，公式和例子都留在手边。',
+    foot: '路径：人工智能基础 · part1–part3',
+  },
+  {
+    id: 'security',
+    title: '网络安全 · 密码学与防御',
+    cat: '研究',
+    year: '2026',
+    cover: 'assets/covers/cover_security.svg',
+    type: 'image',
+    meta: ['18 讲', '两份速记', '中文'],
+    tags: ['密码学', '证书', '防火墙', '恶意软件'],
+    desc: '对称与非对称、哈希与 MAC、证书、防火墙、恶意软件——18 讲课件整理成可以背的版本，配一份必背概念清单。',
+    foot: '路径：网安 · 18 份 lecture PDF',
+  },
+  {
+    id: 'week5',
+    title: '软件工程 Week 5',
+    cat: '工程',
+    year: '2025',
+    cover: 'assets/covers/cover_week5.svg',
+    type: 'image',
+    meta: ['14 张图', '4+1 视图', 'UML'],
+    tags: ['4+1 视图', '用例图', '时序图', 'DFD', 'ERD'],
+    desc: '一个电商系统的全套建模：4+1 视图、用例、时序、DFD、包图、类图与 ERD，共 14 张图，每张都从 Mermaid 生成。',
+    foot: '路径：Week5_Lab · figures/ 与 mermaid/',
+  },
+];

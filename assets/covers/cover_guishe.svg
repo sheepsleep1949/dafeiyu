@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1311"/>
+      <stop offset=".55" stop-color="#16211d"/>
+      <stop offset="1" stop-color="#0b0f0e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".5" cy=".62" r=".5">
+      <stop offset="0" stop-color="#4d7a5e" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#4d7a5e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="doorlight" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8d9a8" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#8a7448" stop-opacity=".2"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <filter id="soft"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)"/>
+  <rect width="900" height="1200" fill="url(#glow)"/>
+  <g opacity=".5" filter="url(#soft)">
+    <path d="M348 860 V412 Q348 214 450 214 Q552 214 552 412 V860 Z" fill="#0a0e0c"/>
+  </g>
+  <path d="M348 860 V412 Q348 214 450 214 Q552 214 450 214 Q348 214 348 412 V860 Z" fill="none"/>
+  <path d="M355 858 V414 Q355 226 450 226 Q545 226 545 414 V858 Z" fill="none" stroke="#3d5a4a" stroke-width="2" opacity=".65"/>
+  <rect x="372" y="410" width="156" height="446" fill="url(#doorlight)" opacity=".12"/>
+  <rect x="440" y="240" width="20" height="600" fill="#d9c48b" opacity=".06"/>
+  <g fill="#7d9a88" font-family="Georgia, 'Times New Roman', serif" font-size="19" letter-spacing="7">
+    <text x="80" y="1090">REN'PY VISUAL NOVEL</text>
+  </g>
+  <g fill="#5f776b" font-family="Georgia, serif" font-size="15" letter-spacing="3">
+    <text x="80" y="1124">26,771 CHARACTERS · 19 CHOICES</text>
+  </g>
+  <g>
+    <rect x="742" y="96" width="66" height="66" fill="#9b2f26" opacity=".92"/>
+    <text x="775" y="143" fill="#f1e6d4" font-family="'Songti SC','SimSun',serif" font-size="38" text-anchor="middle">诡</text>
+  </g>
+  <rect x="60" y="60" width="780" height="1080" fill="none" stroke="#8aa392" stroke-opacity=".18"/>
+  <rect width="900" height="1200" filter="url(#grain)" opacity=".1"/>
+</svg>
