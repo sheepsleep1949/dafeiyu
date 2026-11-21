@@ -21,8 +21,9 @@ const EYE_POS = [new THREE.Vector3(-0.138, 1.215, 0.34), new THREE.Vector3(0.138
 const TAIL_POS = new THREE.Vector3(0, 0.55, -0.12);
 
 const HEAD_PARTS = [
-  'head', 'hair_hood', 'hair_back_hi', 'hair_back_lo', 'hair_back_tail', 'fringe',
-  'side_bang', 'ahoge', 'lock', 'lace_band', 'petal_', 'bow_', 'fin_', 'blush_', 'mouth',
+  'head', 'face_card', 'hair_hood', 'hair_back_hi', 'hair_back_lo', 'hair_back_tail', 'hair_back_top',
+  'hair_back_mid', 'hair_back_low', 'hair_curl', 'fringe', 'strand', 'side_bang', 'ahoge', 'lock',
+  'lace_band', 'petal_', 'bow_', 'fin_', 'blush_', 'mouth',
 ];
 const EYE_RE = /^(eye_|iris|pupil_|hi_|hi2_|lash_)/;
 const TAIL_PARTS = ['tail_a', 'tail_b', 'fluke_'];
@@ -102,11 +103,25 @@ export function loadWhaleGirl() {
             const src = o.material;
             const color = src && src.color ? src.color.clone() : new THREE.Color(0xffffff);
             const rough = src && src.roughness !== undefined ? src.roughness : 0.6;
-            o.material = new THREE.MeshToonMaterial({
-              color,
-              gradientMap: grad,
-            });
-            if (rough < 0.25) o.material.emissive = color.clone().multiplyScalar(0.12);
+
+            if (o.name === 'face_card') {
+              // 脸卡是贴图，不能用卡通着色（会被色阶吃掉细节），用不受光材质保持插画原色
+              o.material = new THREE.MeshBasicMaterial({
+                map: src && src.map ? src.map : null,
+                transparent: true,
+                alphaTest: 0.02,
+                toneMapped: false,
+              });
+            } else {
+              const mat = new THREE.MeshToonMaterial({ color, gradientMap: grad });
+              // 保留贴图（头部的烘焙贴图），否则会变成纯色
+              if (src && src.map) {
+                mat.map = src.map;
+                mat.transparent = Boolean(src.transparent);
+              }
+              if (rough < 0.25) mat.emissive = color.clone().multiplyScalar(0.12);
+              o.material = mat;
+            }
             if (src && src.dispose) src.dispose();
             hit.push(o);
           }
@@ -135,6 +150,7 @@ export function loadWhaleGirl() {
         // 反向壳描边：给每个网格挂一个「背面放大的同款」，作为子节点，
         // 这样它自动跟随头部/尾巴的动画，不会和身体脱节。
         meshes.forEach((m) => {
+          if (m.name === 'face_card') return;   // 脸卡不做描边，否则黑壳会糊住五官
           const ol = new THREE.Mesh(m.geometry, outlineMat);
           ol.scale.setScalar(1.018);
           ol.castShadow = false;
