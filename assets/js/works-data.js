@@ -5,8 +5,8 @@
 export const SITE = {
   name: '大肥鱼',
   tagline: '把想法做成能玩的东西',
-  email: '',        // 例如 hello@example.com，留空则不显示
-  github: '',       // 例如 https://github.com/xxx
+  email: '2585387827@qq.com',
+  github: 'https://github.com/sheepsleep1949',
   year: 2026,
 
   // ↓ 备案通过后把号填进来，页脚会自动出现，并链到工信部/公安备案查询页。
