@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { loadWhaleGirl } from './character.js';
+import { createWhaleGirl } from './girl.js';
 
 /* ------------------------------------------------------------------ *
  * 大肥鱼 · 3D 场景
@@ -525,10 +526,16 @@ export function createScene(canvas) {
   scene.add(screenPool);
 
   /* ---------------- 鲸鱼娘 ---------------- */
-  const girl = loadWhaleGirl();
-  girl.ready.catch((err) => {
-    console.error('GLB 角色加载失败：', err);
-  });
+  // GLB 角色是主力；万一加载模块本身出错（比如某个 API 变了），
+  // 退回原来手搓的角色，至少首页不会开天窗。
+  let girl;
+  try {
+    girl = loadWhaleGirl();
+    girl.ready.catch((err) => console.error('GLB 角色加载失败：', err));
+  } catch (err) {
+    console.error('GLB 角色初始化失败，退回手搓角色：', err);
+    girl = createWhaleGirl();
+  }
   girl.group.position.set(0.95, 0.06, -0.52);
   scene.add(girl.group);
 

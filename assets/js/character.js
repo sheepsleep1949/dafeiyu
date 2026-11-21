@@ -59,10 +59,11 @@ export function loadWhaleGirl() {
   head.position.copy(HEAD_POS);
   rig.add(head);
 
-  const eyes = [
-    Object.assign(new THREE.Group(), { position: EYE_POS[0].clone() }),
-    Object.assign(new THREE.Group(), { position: EYE_POS[1].clone() }),
-  ];
+  // 注意：Object3D.position 是只读属性（three 用 defineProperties 定义且没有 writable），
+  // 严格模式下 Object.assign(group, { position }) 会抛 TypeError，所以只能 copy。
+  const eyes = [new THREE.Group(), new THREE.Group()];
+  eyes[0].position.copy(EYE_POS[0]);
+  eyes[1].position.copy(EYE_POS[1]);
   eyes.forEach((e) => head.add(e));
 
   const tail = new THREE.Group();
