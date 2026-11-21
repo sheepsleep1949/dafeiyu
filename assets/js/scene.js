@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { createWhaleGirl } from './girl.js';
+import { loadWhaleGirl } from './character.js';
 
 /* ------------------------------------------------------------------ *
  * 大肥鱼 · 3D 场景
@@ -214,10 +214,11 @@ export function createScene(canvas) {
   controls.zoomSpeed = 0.8;
   controls.minDistance = 5.4;
   controls.maxDistance = 11.5;
-  controls.minPolarAngle = 1.02;
-  controls.maxPolarAngle = 1.52;
-  controls.minAzimuthAngle = -0.55;
-  controls.maxAzimuthAngle = 0.8;
+  controls.minPolarAngle = 0.55;
+  controls.maxPolarAngle = 1.72;
+  // 水平方向不再限位：可以 360° 转一圈看背面
+  controls.minAzimuthAngle = -Infinity;
+  controls.maxAzimuthAngle = Infinity;
 
   /* ---------------- 灯光 ---------------- */
   const hemi = new THREE.HemisphereLight(0xdceeff, 0xffe2c6, 0.6);
@@ -524,9 +525,11 @@ export function createScene(canvas) {
   scene.add(screenPool);
 
   /* ---------------- 鲸鱼娘 ---------------- */
-  const girl = createWhaleGirl();
+  const girl = loadWhaleGirl();
+  girl.ready.catch((err) => {
+    console.error('GLB 角色加载失败：', err);
+  });
   girl.group.position.set(0.95, 0.06, -0.52);
-  girl.group.scale.setScalar(1.08);
   scene.add(girl.group);
 
   const fish = girl.group;
